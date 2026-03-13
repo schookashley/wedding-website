@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>RSVP</title>
+    </head>
+
+    <style>
+
+
+        body{
+            font-family: Georgia, serif;
+            margin:0;
+            background-color:#f7f3ea;
+        }
+
+        .guest-note{
+            background:#f2dfdf;
+            border-left:5px solid #6b1f2a;
+            padding:15px;
+            margin-bottom:20px;
+            max-width:700px;
+        }
+
+        .hero-small{
+            background-size:cover;
+            background-position:center;
+            height:60vh;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:white;
+            width:100%;
+
+
+                background-image:
+                    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+                    url("engagement.jpg");
+
+                background-size:cover;
+                background-position:center 30%;
+
+        }
+
+        .hero-small h1{
+            background:rgba(0,0,0,0.35);
+            padding:12px 28px;
+        }
+
+        form{
+            margin-top:30px;
+        }
+
+        input, select, textarea{
+            width:100%;
+            max-width:400px;
+            padding:8px;
+            margin-top:5px;
+        }
+
+         nav{
+                background:#6b1f2a;
+                padding:15px;
+                text-align:center;
+                position:sticky;
+                top:0;
+            }
+
+            nav a{
+                color:white;
+                margin:0 20px;
+                text-decoration:none;
+                font-size:18px;
+            }
+
+            nav a:hover{
+                color:#a8b5a2;
+            }
+
+            .content{
+                max-width:700px;
+                margin:0 auto;
+                padding:40px;
+                text-align:left;
+            }
+
+            form{
+                max-width:500px;
+                margin:30px auto;
+            }
+
+    </style>
+
+    <body>
+
+        <nav>
+
+            <a href="index.html">Home</a>
+            <a href="index.html#story">Our Story</a>
+            <a href="index.html#details">Details</a>
+            <a href="index.html#travel">Travel</a>
+            <a href="index.html#registry">Honeymoon Fund</a>
+            <a href="rsvp.html">RSVP</a>
+
+        </nav>
+
+        <div class="hero-small">
+            <h1>RSVP</h1>
+        </div>
+
+        <div class="content">
+
+
+        <div class="guest-note">
+
+            Due to our venue's limited capacity of 50 guests, we kindly ask that only members of your immediate household attend. Please list the names of everyone attending with you.
+
+        </div>
+
+        <form id="rsvpForm">
+
+            <label>Name:</label>
+            <br>
+            <input type="text" id="name" name="name" required>
+
+            <br><br>
+
+            <label>Will you attend?</label>
+            <br>
+
+            <select id="attending" name="attending">
+                <option>Yes</option>
+                <option>No</option>
+            </select>
+
+            <br><br>
+
+            <label>Names of everyone attending:</label>
+            <br>
+            <textarea id="guestNames" rows="4" cols="30" placeholder="One name per line"></textarea>
+
+            <br><br>
+
+            <label>Song Request (optional):</label>
+            <br>
+            <textarea id="songRequest" rows="3" placeholder="Let us know a song you'd love to hear! (Please include artist!)"></textarea>
+
+            <br><br>
+
+
+            <button type="submit">Submit RSVP</button>
+
+        </form>
+
+        <script>
+
+            document.getElementById("rsvpForm").addEventListener("submit", function(event){
+                event.preventDefault();
+
+                let name = document.getElementById("name").value;
+                let attending = document.getElementById("attending").value;
+                let guestNames = document.getElementById("guestNames").value;
+                let songRequest  = document.getElementById("songRequest").value;
+
+                let guest = {
+                    name: name,
+                    attending: attending,
+                    guestNames: guestNames,
+                    songRequest: songRequest
+                };
+
+                let guests = JSON.parse(localStorage.getItem("guests")) || [];
+
+                guests.push(guest);
+
+                localStorage.setItem("guests", JSON.stringify(guests));
+
+                alert("Thank you for your RSVP! We can't wait to celebrate with you!");
+
+                document.getElementById("rsvpForm").reset();
+            })
+
+        </script>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>RSVP Responses</title>
+
+        <style>
+            body {
+                font-family: Georgia, serif;
+                background: #f7f3ea;
+                padding: 40px;
+            }
+
+            h1 {
+                text-align: center;
+            }
+
+            .response {
+                background: white;
+                padding: 20px;
+                margin-bottom: 20px;
+                border-left: 5px solid #6b1f2a;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <h1>RSVP Responses</h1>
+
+        <h3 id="guestCount"></h3>
+
+        <div id="responses"></div>
+
+        <script>
+            let password = prompt("Enter password to view RSVPs:");
+
+            if (password !== "wedding123") {
+                document.body.innerHTML = "<h2>Access denied</h2>";
+            } else {
+
+                let guests = JSON.parse(localStorage.getItem("guests")) || [];
+
+                let totalGuests = 0;
+
+                guests.forEach(function(g){
+                    if(g.guestNames){
+                        totalGuests += g.guestNames.split("\n").length;
+                    }
+                });
+
+                document.getElementById("guestCount").innerHTML = "Guests attending: " + totalGuests + " / 50";
+
+                let container = document.getElementById("responses");
+
+                guests.forEach(function(guest) {
+
+                    let div = document.createElement("div");
+                    div.className = "response";
+
+                    div.innerHTML = `
+                    <strong>Name:</strong> ${guest.name}<br>
+                    <strong>Attending:</strong> ${guest.attending}<br>
+                    <strong>Guests:</strong> ${guest.guestNames}<br>
+                    <strong>Song Request:</strong> ${guest.songRequest}
+                    `;
+
+                    container.appendChild(div);
+
+                });
+
+            }
+        </script>
+
+    </body>
+
+</html>

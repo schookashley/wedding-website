@@ -1,0 +1,328 @@
+<!--
+CS50 Final Project
+Ashley Schook
+Welcome to the code behind my wedding website, which i will be using to share my wedding details
+and collect RSVPs from my guests!
+
+Some debugging assistance and explanation of concepts were provided by ChatGPT.
+All code was written and implemented by yours truely :) -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ashley & Caleb</title>
+
+        <style>
+
+            body{
+            margin:0;
+            font-family: Georgia, serif;
+            background-color:#f7f3ea;
+            text-align:center;
+            }
+
+            html{
+            scroll-behavior:smooth;
+            }
+
+/* Hero section background image and layout */
+            .hero{
+            height:90vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            flex-direction:column;
+            text-align:center;
+
+            background-image:
+            linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+            url("engagement.jpg");
+
+            background-size:cover;
+            background-position:center;
+            }
+
+            .hero h1{
+            font-size:70px;
+            color:white;
+            text-shadow:2px 2px 6px rgba(0,0,0,0.6);
+            }
+
+            .hero h2,
+            .hero h3,
+            .hero p{
+            color:white;
+            text-shadow:2px 2px 6px rgba(0,0,0,0.6);
+            }
+
+/* Nav style */
+
+            nav{
+            background:#6b1f2a;
+            padding:15px;
+            text-align:center;
+            position:sticky;
+            top:0;
+            }
+
+            nav a{
+            color:white;
+            margin:0 20px;
+            text-decoration:none;
+            font-size:18px;
+            transition:0.3s;
+            }
+
+            nav a:hover{
+            color:#a8b5a2;
+            }
+
+/*Countdown style*/
+
+            #countdown{
+            margin-top:30px;
+            font-size:24px;
+            color:white;
+            font-weight:bold;
+            }
+
+/*sections style & Rsvp buttons*/
+
+            section{
+            padding:110px 20px;
+            max-width:800px;
+            margin:auto;
+            margin-bottom:60px;
+            min-height:70vh;
+            }
+
+            h2{
+            text-align:center;
+            color:#444;
+            }
+
+            h2::after{
+            content:"";
+            display:block;
+            width:60px;
+            height:3px;
+            background:#6b1f2a;
+            margin:10px auto 30px auto;
+            }
+
+            .story-text{
+            max-width:700px;
+            margin:auto;
+            line-height:1.7;
+            font-size:18px;
+            }
+
+            .story-text p{
+            margin-bottom:20px;
+            }
+
+            .rsvp-button{
+            display:inline-block;
+            background:#6b1f2a;
+            color:white;
+            padding:15px 30px;
+            margin-top:20px;
+            text-decoration:none;
+            font-weight:bold;
+            border-radius:4px;
+            transition:all 0.3s ease;
+            }
+
+            .rsvp-button:hover{
+            background:#9caf88;
+            transform:translateY(-2px);
+            }
+
+            #rsvp{
+            text-align:center;
+            }
+
+            section {
+                border-bottom:1px solid #e6e2d9;
+            }
+
+            footer{
+            background:#6b1f2a;
+            color:white;
+            text-align:center;
+            padding:20px;
+            margin-top:40px;
+            }
+
+
+
+        </style>
+    </head>
+
+    <body>
+<!--Navigation Bar-->
+        <nav>
+
+            <a href="#">Home</a>
+            <a href="#story">Our Story</a>
+            <a href="#details">Details</a>
+            <a href="#travel">Travel</a>
+            <a href="#registry">Honeymoon Fund</a>
+            <a href="rsvp.html">RSVP</a>
+
+        </nav>
+
+        <div class="hero">
+
+        <h1>Ashley & Caleb</h1>
+        <h2>We're Getting Married!!</h2>
+        <h3>October 14, 2026</h3>
+
+        <p>Welcome to our wedding website!</p>
+
+        <a href="rsvp.html" class="rsvp-button">RSVP</a>
+
+        <div id="countdown"></div>
+
+        </div>
+
+<!--Our story-->
+        <section id="story">
+            <h2>Our Story</h2>
+
+        <div class="story-text">
+
+        <p>
+        Our story began in 2001 as young kids in elementary school, playing in the schoolyard, playing tag, and creating childhood moments that helped shape who we are today. Through our experiences in life and finding our own paths, we eventually found ourselves reconnecting. One day we decided the time was right and took that leap of faith toward happiness, and it felt like the right one.
+        </p>
+
+        <p>
+        We created memories, built connections, went on adventures, and have truly fallen in love with who we are together. By accepting our past, loving our present, and encouraging our future, we continue striving to become the people we know we can become as individuals and as a team.
+        </p>
+
+        <p>
+        Realizing this has brought us to this moment of unity. Every moment in our past and every decision we made in our present has led us to this one moment—creating a future of our happily ever after, and we wouldn’t have it any other way.
+        </p>
+
+        <p>
+        And now, we’re so excited to celebrate the next chapter of our story with all of you.
+        </p>
+
+        </div>
+
+        </section>
+<!--Wedding Details-->
+        <section id="details">
+
+            <h2>Wedding Details</h2>
+            <p><strong>Date: </strong> October 14, 2026</p>
+            <p><strong>Venue: </strong>Sunset Acres</p>
+            <p>
+            10711 County Rd 561<br>
+            Clermont, Florida 34711
+            </p>
+            <p><strong>Ceremony: </strong>6:00 PM</p>
+            <p><strong>Reception: </strong>Immediatly following the ceremony.</p>
+            <p><strong>Dress Code: </strong> Cocktail Atire (Outdoor Event)</p>
+            <p>
+            Outdoor ceremony with reception to follow under the lights.<br>
+            Guests are encouraged to arrive by 5:30 PM.
+            </p>
+            <p>
+            <a href="https://maps.google.com/?q=10711+County+Rd+561+Clermont+FL+34711" target="_blank">
+            Get Directions
+            </a>
+            </p>
+
+        </section>
+
+
+<!--Travel Details-->
+
+        <section id="travel">
+            <h2>Travel</h2>
+            <p>For guests traveling from out of town, the nearest airport is <strong>Orlando International Airport (MCO)</strong>,
+            located about 40-45 minutes from the venue.
+            </p>
+
+        </section>
+
+
+<!-- Honeymoon fund-->
+
+        <section id="registry">
+            <h2>Honeymoon Fund</h2>
+            <p>
+                Your presence at our weddung is the greatest gift we could ask for.
+                However, if you wish to celebrate with a gift, we kindly invite you to
+                contribute to our honeymoon fund as we begin our next adventure together.
+            </p>
+
+            <p>
+                Contributions can be made through Honeyfund, Zelle, or with a card at the wedding.
+            </p>
+
+            <p>
+                Honeyfund: <a href="https://www.honeyfund.com/site/colon-colon-10-14-2026" target="_blank">View Our Honeyfund</a>
+            </p>
+
+            <p>
+                Zelle: CalebandAshleyColon@gmail.com
+                <br>
+                <button onclick="navigator.clipboard.writeText('CalebandAshleyColon@gmail.com')">Copy Zelle Email
+                </button>
+            </p>
+
+            <p>
+                For guests attending the wedding, QR codes for Honeyfund and Zelle will
+                also be available at the reception for easy access.
+            </p>
+
+        </section>
+
+<!--RSVP home page -->
+
+        <section id="rsvp">
+            <h2>RSVP</h2>
+            <p>
+            To RSVP for our wedding, please click the RSVP button above to visit our RSVP page.
+            You’ll be able to confirm attendance and request a song for the celebration
+            (please include the artist name if possible).
+            </p>
+
+            <p>
+            Please note that our venue has a capacity of 50 guests, so we kindly ask that
+            only members of your immediate household attend.
+            </p>
+
+            <a href="rsvp.html" class="rsvp-button">RSVP Here</a>
+
+        </section>
+
+
+<!--Countdown timer -->
+        <script>
+
+            const weddingDate = new Date("October 14, 2026 00:00:00").getTime();
+            const time = setInterval(function(){
+
+                const now = new Date().getTime();
+                const distance = weddingDate - now;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 *60)) / (1000 * 60));
+
+                document.getElementById ("countdown").innerHTML =
+                    days + " Days " + hours + " Hours " + minutes + " Minutes Until We Say 'I Do' ";
+            }, 1000);
+        </script>
+
+<!--Footer-->
+
+        <footer>
+            <p>&copy; 2026 Ashley & Calebs's Wedding</p>
+        </footer>
+
+    </body>
+</html>
