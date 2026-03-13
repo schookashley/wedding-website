@@ -52,7 +52,7 @@
 
         input, select, textarea{
             width:100%;
-            max-width:400px;
+            max-width:600px;
             padding:8px;
             margin-top:5px;
         }
@@ -147,7 +147,7 @@
             <br>
 
             <div id="guestSelection">
-            <textarea id="guestNames" name="guestNames rows="4" cols="30" placeholder="One name per line"></textarea>
+            <textarea id="guestNames" name="guestNames rows="6" cols="30" placeholder="One name per line"></textarea>
 
             <br><br>
 
@@ -166,8 +166,9 @@
         </div
 
             <script>
+                
                 document.getElementById("attending").addEventListener("Change", function() {
-                    const guestSection = document.getElementById("guestSection");
+                    const guestSection = document.getElementById("guestSelection");
 
                     if (this.value == "No") {
                         guestSection.style.display = "none";
