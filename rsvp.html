@@ -167,13 +167,13 @@
 
             <script>
                 
-                document.getElementById("attending").addEventListener("Change", function() {
-                    const guestSection = document.getElementById("guestSelection");
+            document.getElementById("attending").addEventListener("change", function() {
+                const guestSection = document.getElementById("guestSelection");
 
-                    if (this.value == "No") {
-                        guestSection.style.display = "none";
-                    } else {
-                        guestSection.style.display = "block";
+                if (this.value == "No") {
+                     guestSection.style.display = "none";
+                } else {
+                     guestSection.style.display = "block";
                     }
                 });
                     
