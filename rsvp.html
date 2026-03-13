@@ -135,8 +135,8 @@
             <br>
 
             <select id="attending" name="attending">
-                <option>Yes</option>
-                <option>No</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
             </select>
 
             <br><br>
@@ -168,7 +168,7 @@
         document.getElementById("attending").addEventListener("change", function() {
             const guestSection = document.getElementById("guestSelection");
 
-            if (this.value == "No") {
+            if (this.value === "No") {
                 guestSection.style.display = "none";
             } else {
                 guestSection.style.display = "block";
