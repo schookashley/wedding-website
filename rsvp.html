@@ -116,7 +116,14 @@
 
         </div>
 
-        <form id="rsvpForm">
+            <div class="content">
+
+                <div id="thankyouMessage" style="display:none; text-align:center; margin-top:20px;">
+                    <h2>Thank you for your RSVP!</h2>
+                    <P>We can't wait to celebrate with you!</P>
+                    </div>
+
+        <form action="https://formspree.io/f/mdawdkzw" method="POST">
 
             <label>Name:</label>
             <br>
@@ -134,15 +141,19 @@
 
             <br><br>
 
-            <label>Names of everyone attending:</label>
+            <label>Names of ALL guests attending:</label>
             <br>
-            <textarea id="guestNames" rows="4" cols="30" placeholder="One name per line"></textarea>
+            <small style="color: gray;">Please include yourself if you are attending.</small>
+            <br>
+
+            <div id="guestSelection">
+            <textarea id="guestNames" name="guestNames rows="4" cols="30" placeholder="One name per line"></textarea>
 
             <br><br>
 
             <label>Song Request (optional):</label>
             <br>
-            <textarea id="songRequest" rows="3" placeholder="Let us know a song you'd love to hear! (Please include artist!)"></textarea>
+            <textarea id="songRequest" name="songRequest" rows="3" placeholder="Let us know a song you'd love to hear! (Please include artist!)"></textarea>
 
             <br><br>
 
@@ -151,35 +162,20 @@
 
         </form>
 
-        <script>
+      
+        </div
 
-            document.getElementById("rsvpForm").addEventListener("submit", function(event){
-                event.preventDefault();
+            <script>
+                document.getElementById("attending").addEventListener("Change", function() {
+                    const guestSection = document.getElementById("guestSection");
 
-                let name = document.getElementById("name").value;
-                let attending = document.getElementById("attending").value;
-                let guestNames = document.getElementById("guestNames").value;
-                let songRequest  = document.getElementById("songRequest").value;
-
-                let guest = {
-                    name: name,
-                    attending: attending,
-                    guestNames: guestNames,
-                    songRequest: songRequest
-                };
-
-                let guests = JSON.parse(localStorage.getItem("guests")) || [];
-
-                guests.push(guest);
-
-                localStorage.setItem("guests", JSON.stringify(guests));
-
-                alert("Thank you for your RSVP! We can't wait to celebrate with you!");
-
-                document.getElementById("rsvpForm").reset();
-            })
-
-        </script>
-        </div>
+                    if (this.value == "No") {
+                        guestSection.style.display = "none";
+                    } else {
+                        guestSection.style.display = "block";
+                    }
+                });
+                    
+            </script>
     </body>
 </html>
