@@ -193,7 +193,8 @@ All code was written and implemented by yours truely :) -->
                     height:auto;
                     min-height:80vh;
                     background-position:center 40%;
-                    background-size:cover;
+                    background-size:contain;
+                    background-repeat:no-repeat;
                     padding:60px 20px;
                 }
 
@@ -209,6 +210,16 @@ All code was written and implemented by yours truely :) -->
                     font-size:18px;
                     line-height:1.5;
                     padding:0 20px;
+                }
+
+                .hotel-grid{
+                    display:grid;
+                    grid-template-columns:1fr 1fr;
+                    gap:20px;
+                }
+
+                .hotel-card{
+                    width:100%
                 }
 
             }
