@@ -121,6 +121,21 @@ All code was written and implemented by yours truely :) -->
             margin-bottom:20px;
             }
 
+            .travel-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+            gap:30px;
+            margin-top:30px;
+            }
+            
+            .hotel-card{
+            background:#ffffff;
+            padding:20px;
+            border-radius:8px;
+            box-shadow:0 4px 10px rgba(0,0,0,0.08);
+            text-align:center;
+            }
+
             .rsvp-button{
             display:inline-block;
             background:#6b1f2a;
@@ -242,13 +257,66 @@ All code was written and implemented by yours truely :) -->
 
 <!--Travel Details-->
 
-        <section id="travel">
-            <h2>Travel</h2>
-            <p>For guests traveling from out of town, the nearest airport is <strong>Orlando International Airport (MCO)</strong>,
-            located about 40-45 minutes from the venue.
-            </p>
+<section id="travel">
 
-        </section>
+<h2>Travel & Nearby Hotels</h2>
+
+<p>
+For guests traveling from out of town,<br>
+the following hotels are located near the venue in Clermont, Florida.
+</p>
+
+<p>
+There are also many beautiful Airbnb and VRBO rental homes<br>
+available throughout the area for those who prefer a private stay<br>
+or are traveling with larger groups.
+</p>
+
+<div class="travel-grid">
+
+<div class="hotel-card">
+<strong>Staybridge Suites Clermont</strong><br><br>
+3440 US-27 S<br>
+Clermont, FL 34711<br>
+Phone: <a href="tel:3524323142">(352) 432-3142</a><br>
+Rating: ★★★★☆
+</div>
+
+<div class="hotel-card">
+<strong>Holiday Inn Express Clermont</strong><br><br>
+1810 S US Highway 27<br>
+Clermont, FL 34711<br>
+Phone: <a href="tel:3522437878">(352) 243-7878</a><br>
+Rating: ★★★★☆
+</div>
+
+<div class="hotel-card">
+<strong>Fairfield Inn & Suites by Marriott Clermont</strong><br><br>
+1750 Hunt Trace Blvd<br>
+Clermont, FL 34711<br>
+Phone: <a href="tel:3523946585">(352) 394-6585</a><br>
+Rating: ★★★★☆
+</div>
+
+<div class="hotel-card">
+<strong>Home2 Suites by Hilton Clermont</strong><br><br>
+1450 Champions Way<br>
+Clermont, FL 34711<br>
+Phone: <a href="tel:3522272900">(352) 227-2900</a><br>
+Rating: ★★★★☆
+</div>
+
+<div class="hotel-card">
+<strong>Hampton Inn & Suites Clermont</strong><br><br>
+2200 E SR-50<br>
+Clermont, FL 34711<br>
+Phone: <a href="tel:3525366600">(352) 536-6600</a><br>
+Rating: ★★★★☆
+</div>
+
+</div>
+
+</section>
 
 
 <!-- Honeymoon fund-->
